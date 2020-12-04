@@ -1,0 +1,6 @@
+mu-plugins: git@github.com:Automattic/vip-go-mu-plugins-built.git
+plugins: git@bitbucket.org:penskemediacorp/pmc-vip-go-plugins.git
+plugins/pmc-plugins: git@bitbucket.org:penskemediacorp/pmc-plugins.git
+themes/pmc-core-2017: git@bitbucket.org:penskemediacorp/pmc-core-2017.git
+themes/pmc-core-v2: git@bitbucket.org:penskemediacorp/pmc-core-v2.git
+themes/pmc-summits: git@bitbucket.org:penskemediacorp/pmc-summits.git
