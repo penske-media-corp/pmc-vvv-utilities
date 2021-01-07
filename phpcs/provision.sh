@@ -11,12 +11,12 @@ noroot composer update --no-ansi --no-autoloader --no-progress -d "$STANDARDS_DI
 
 vvv_info " * Setting PmcWpVipGo as default PHPCS standard..."
 
-PMCCS_STANDARDS=$(find $STANDARDS_DIR -maxdepth 1 -type d -name "Pmc*")
+PMCCS=$(find $STANDARDS_DIR -maxdepth 1 -type d -name "Pmc*")
 PMCCS_DEPENDENCIES=$(find "${STANDARDS_DIR}vendor/" -maxdepth 3 -type f -name composer.json -not -path "${STANDARDS_DIR}vendor/dealerdirect/*" -not -path "${STANDARDS_DIR}vendor/squizlabs/*" | sed -e 's,/composer.json$,,')
 
-PMCCS_STANDARDS=$(echo "${PMCCS_STANDARDS},${PMCCS_DEPENDENCIES}" | sed -e 's,/srv/www/phpcs,.,g' | sed -e :a -e N -e 's/\n/,/' -e ta)
+PMCCS=$(echo "${PMCCS},${PMCCS_DEPENDENCIES}" | sed -e 's,/srv/www/phpcs,.,g' | sed -e :a -e N -e 's/\n/,/' -e ta)
 
-phpcs --config-set installed_paths "$PMCCS_STANDARDS"
+phpcs --config-set installed_paths "$PMCCS"
 phpcs --config-set default_standard PmcWpVipGo
 phpcs -i
 phpcs --config-show
