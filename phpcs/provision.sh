@@ -9,8 +9,14 @@ vvv_info " * Install PMC Codesniffer..."
 git clone git@bitbucket.org:penskemediacorp/pmc-codesniffer.git "$STANDARDS_DIR"
 noroot composer update --no-ansi --no-autoloader --no-progress -d "$STANDARDS_DIR"
 
-vvv_info " * Setting PmcWpVip as default PHPCS standard..."
-phpcs --config-set installed_paths ./CodeSniffer/Standards/PmcWpVip/,./CodeSniffer/Standards/PmcLaravel/,./CodeSniffer/Standards/vendor/wp-coding-standards/wpcs/,./CodeSniffer/Standards/vendor/automattic/vipwpcs/,./CodeSniffer/Standards/vendor/sirbrillig/phpcs-variable-analysis/
-phpcs --config-set default_standard PmcWpVip
+vvv_info " * Setting PmcWpVipGo as default PHPCS standard..."
+
+PMCCS=$(find $STANDARDS_DIR -maxdepth 1 -type d -name "Pmc*")
+PMCCS_DEPENDENCIES=$(find "${STANDARDS_DIR}vendor/" -maxdepth 3 -type f -name composer.json -not -path "${STANDARDS_DIR}vendor/dealerdirect/*" -not -path "${STANDARDS_DIR}vendor/squizlabs/*" | sed -e 's,/composer.json$,,')
+
+PMCCS=$(echo "${PMCCS},${PMCCS_DEPENDENCIES}" | sed -e 's,/srv/www/phpcs,.,g' | sed -e :a -e N -e 's/\n/,/' -e ta)
+
+phpcs --config-set installed_paths "$PMCCS"
+phpcs --config-set default_standard PmcWpVipGo
 phpcs -i
 phpcs --config-show
