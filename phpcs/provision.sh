@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+PHPCS_CMD="/srv/www/phpcs/bin/phpcs"
 STANDARDS_DIR="/srv/www/phpcs/CodeSniffer/Standards/"
 
 vvv_info " * Removing PHCPS standards provisioned by VVV..."
@@ -16,7 +17,7 @@ PMCCS_DEPENDENCIES=$(find "${STANDARDS_DIR}vendor/" -maxdepth 3 -type f -name co
 
 PMCCS=$(echo "${PMCCS},${PMCCS_DEPENDENCIES}" | sed -e 's,/srv/www/phpcs,.,g' | sed -e :a -e N -e 's/\n/,/' -e ta)
 
-phpcs --config-set installed_paths "$PMCCS"
-phpcs --config-set default_standard PmcWpVipGo
-phpcs -i
-phpcs --config-show
+$PHPCS_CMD --config-set installed_paths "$PMCCS"
+$PHPCS_CMD --config-set default_standard PmcWpVipGo
+$PHPCS_CMD -i
+$PHPCS_CMD --config-show
