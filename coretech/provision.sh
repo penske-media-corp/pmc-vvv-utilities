@@ -2,7 +2,8 @@
 
 CORETECH_DIR="/tmp/pmc-coretech"
 
-REPO_LIST="/srv/provision/utilities/pmc/coretech/repos.yml"
+PROVISION_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+REPO_LIST="${PROVISION_DIR}/repos.yml"
 
 vvv_info " * Preparing to clone common code for reuse during site provisioning..."
 
@@ -20,4 +21,3 @@ while IFS='' read -r -d '' key &&
   noroot git clone --recursive --quiet "${value}" "${CORETECH_DIR}/${key}"
 done
 set -e
-
