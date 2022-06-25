@@ -5,13 +5,9 @@ CORETECH_DIR="/tmp/pmc-coretech"
 PROVISION_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 REPO_LIST="${PROVISION_DIR}/repos.yml"
 
-function pmc_git_trust_all() {
-  git config --global --add safe.directory '*'
-}
-
 vvv_info " * Forcing git to trust all repos..."
-pmc_git_trust_all
-noroot pmc_git_trust_all
+git config --global --add safe.directory '*'
+noroot git config --global --add safe.directory '*'
 
 vvv_info " * Preparing to clone common code for reuse during site provisioning..."
 
