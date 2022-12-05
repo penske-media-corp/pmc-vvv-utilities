@@ -7,7 +7,7 @@ vvv_info " * Removing PHCPS provisioned by VVV..."
 rm -rf $PHPCS_DIR
 
 vvv_info " * Install PMC Codesniffer..."
-noroot git clone git@bitbucket.org:penskemediacorp/pmc-codesniffer.git "$PHPCS_DIR"
+noroot git clone git@github.com:penske-media-corp/pmc-codesniffer.git "$PHPCS_DIR"
 noroot composer update --no-ansi --no-autoloader --no-progress -d "$PHPCS_DIR"
 
 # Symlink bin directory added to $PATH by VVV.
