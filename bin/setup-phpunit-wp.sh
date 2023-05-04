@@ -2,6 +2,7 @@
 
 ################################################################################
 # Script Name: setup-phpunit-wp.sh
+# Script Location: /srv/provision/extensions/pmc/bin/setup-phpunit-wp.sh
 #
 # Description:
 #   This script sets up PHPUnit and WordPress for automated testing on a Vagrant
