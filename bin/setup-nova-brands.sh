@@ -6,22 +6,25 @@
 #
 # Description:
 #   This script installs all nova themes, so that you can set up all nova themes under
-#   single site installation. Nova theme will be used as the base theme.
+#   single site installation. You can run this script from any sites theme folder, you would
+#   like to install all themes.
 #   You must also make it executable by running the command:
 #     chmod +x setup-nova-brands.sh
 #
 # Usage:
-#   ./setup-nova-brands.sh
+#    Suppose I want to clone all theme under artforum site, I would then navigate
+#    to artforum theme folder and run the script with its location :
+#
+#    cd /srv/www/artforum-com/public_html/wp-content/themes
+#    /srv/provision/extensions/pmc/bin/setup-nova-brands.sh
 #
 # Created: 7 Sept 2023
 ################################################################################
 
-# Navigate to nova theme directory
-cd /srv/www/nova/public_html/wp-content/themes
-
 # Clone all nova brands
 sudo git clone git@github.com:penske-media-corp/pmc-artforum-2023.git
 sudo git clone git@github.com:penske-media-corp/pmc-indiewire-2023.git
+sudo git clone git@github.com:penske-media-corp/pmc-nova-theme.git
 sudo git clone git@github.com:penske-media-corp/pmc-stylecaster-2023.git
 sudo git clone git@github.com:penske-media-corp/pmc-tvline-2023.git
 
