@@ -5,6 +5,11 @@ CORETECH_DIR="/tmp/pmc-coretech"
 PROVISION_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 REPO_LIST="${PROVISION_DIR}/repos.yml"
 
+vvv_info " * Installing missing PHP dependencies and fixing default version..."
+apt-get install php8.2-memcache
+apt-get install php8.2-xdebug
+update-alternatives --set php /usr/bin/php8.2
+
 vvv_info " * Forcing git to trust all repos..."
 git config --global --add safe.directory '*'
 noroot git config --global --add safe.directory '*'
