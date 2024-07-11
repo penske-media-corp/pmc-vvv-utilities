@@ -1,0 +1,20 @@
+#!/bin/bash
+
+cd "${VVV_INSTANCE_DIR}" || exit 1
+
+case $1 in
+  on)
+    CMD="/srv/config/homebin/xdebug_on"
+    ;;
+
+  off)
+    CMD="/srv/config/homebin/xdebug_off"
+    ;;
+
+  *)
+    echo "Specify 'on' or 'off' as the first argument."
+    exit 1
+    ;;
+esac
+
+vagrant ssh -c "export PATH=/srv/config/homebin:$PATH; ${CMD}"
