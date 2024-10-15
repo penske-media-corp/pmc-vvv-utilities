@@ -1,5 +1,10 @@
 # PMC VVV Utilities
 
+> ⚠️
+>
+> **This repository is deprecated.** PMC no longer supports VVV, but this
+> repository persists as a reference.
+
 Custom system-level features and software for [VVV](https://github.com/varying-vagrant-vagrants/vvv/).
 
 ## What's included
