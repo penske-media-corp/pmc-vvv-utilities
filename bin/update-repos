@@ -8,6 +8,7 @@ function update_repos() {
   WP_CONTENT_DIR=$(pwd)
 
   local DIRECTORIES=(
+    "${WP_CONTENT_DIR}/client-mu-plugins"
     "${WP_CONTENT_DIR}/mu-plugins"
     "${WP_CONTENT_DIR}/plugins"
     "${WP_CONTENT_DIR}/plugins/pmc-plugins"
