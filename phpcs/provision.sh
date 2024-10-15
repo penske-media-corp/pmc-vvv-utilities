@@ -3,7 +3,7 @@
 PHPCS_DIR="/srv/www/phpcs"
 PHPCS_CMD="${PHPCS_DIR}/bin/phpcs"
 
-vvv_info " * Removing PHCPS provisioned by VVV..."
+vvv_info " * Removing PHPCS provisioned by VVV..."
 rm -rf $PHPCS_DIR
 
 vvv_info " * Install PMC Codesniffer..."

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+REL_PATH=$(pwd)
+
+cd "${VVV_INSTANCE_DIR}" || exit 1
+
+VAGRANT_PATH=${REL_PATH/$VVV_INSTANCE_DIR/\/srv}
+
+CMD="cd ${VAGRANT_PATH}; wp $*"
+printf "%s\n\n" "$CMD"
+
+vagrant ssh -c "${CMD}; echo"
